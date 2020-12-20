@@ -245,3 +245,5 @@ Temporary Items
 .apdisk
 
 .idea
+!/tsconfig.esm.tsbuildinfo
+!/tsconfig.cjs.tsbuildinfo
