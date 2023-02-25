@@ -1,23 +1,16 @@
-const { Builder, Capabilities, logging } = require("selenium-webdriver");
-const pref = new logging.Preferences();
-pref.setLevel(logging.Type.BROWSER, logging.Level.DEBUG);
+const { Builder, Capabilities, By } = require("selenium-webdriver");
+const { Preferences, Type, Level } = require("selenium-webdriver/lib/logging");
+const pref = new Preferences();
+pref.setLevel(Type.BROWSER, Level.ALL);
 
-const TAB_INTERVAL = 500;
+const TAB_INTERVAL = 300;
 
 const testSwitchTab = async (driver) => {
   try {
-    await driver.get(
-      "https://masatomakino.github.io/browser-tab-visibility-listener/demo/demo.html"
-    );
-    const handle = await driver.getWindowHandle();
-    await searchLog(driver, undefined);
-
-    await driver.switchTo().newWindow("tab");
-    await driver.sleep(TAB_INTERVAL);
-    await searchLog(driver, null);
-
-    await driver.switchTo().window(handle);
-    await driver.sleep(TAB_INTERVAL);
+    await driver.get("http://localhost:3005/demo.html");
+    const browserWindow = await driver.manage().window();
+    await browserWindow.minimize();
+    await browserWindow.maximize();
     await searchLog(driver, "visible");
   } catch (e) {
     console.log(e);
@@ -27,7 +20,7 @@ const testSwitchTab = async (driver) => {
 };
 
 const searchLog = async (driver, message) => {
-  const state = await driver.executeScript("return window.visibleState;");
+  const state = await driver.executeScript("return window.visibleState");
   if (state != message) {
     const cap = await driver.getCapabilities();
     console.warn(
@@ -35,7 +28,7 @@ const searchLog = async (driver, message) => {
         "browserVersion"
       )} => expected is ${message} but result is ${state}`
     );
-    console.trace();
+    process.exit(1);
   }
 };
 
@@ -50,6 +43,7 @@ const browsers = [
   Capabilities.firefox(),
   Capabilities.safari(),
 ];
-browsers.forEach((capability) => {
-  test(capability);
+
+browsers.forEach(async (capability) => {
+  await test(capability);
 });
