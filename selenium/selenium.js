@@ -1,9 +1,7 @@
-const { Builder, Capabilities, By } = require("selenium-webdriver");
+const { Builder, Capabilities } = require("selenium-webdriver");
 const { Preferences, Type, Level } = require("selenium-webdriver/lib/logging");
 const pref = new Preferences();
 pref.setLevel(Type.BROWSER, Level.ALL);
-
-const TAB_INTERVAL = 300;
 
 const testSwitchTab = async (driver) => {
   try {
@@ -33,7 +31,7 @@ const searchLog = async (driver, message) => {
   }
 };
 
-const test = (capabilities) => {
+const selenium = (capabilities) => {
   capabilities.setLoggingPrefs(pref);
   const driver = new Builder().withCapabilities(capabilities).build();
   testSwitchTab(driver);
@@ -46,5 +44,5 @@ const browsers = [
 ];
 
 browsers.forEach(async (capability) => {
-  await test(capability);
+  await selenium(capability);
 });

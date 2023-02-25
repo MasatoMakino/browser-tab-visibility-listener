@@ -31,7 +31,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        browser: ["chrome", "firefox", "edge"]
+        browser: ["chrome", "firefox", "safari"]
     services:
       selenium:
         image: selenium/standalone-${{ matrix.browser }}
@@ -44,6 +44,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm run build
-      - run: npm run selenium
+      - run: npm run seleniumServer
+      - run: npm run test
         env:
           BROWSER: ${{ matrix.browser }}
