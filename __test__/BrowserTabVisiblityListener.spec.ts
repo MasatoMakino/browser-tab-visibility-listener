@@ -6,6 +6,7 @@ pref.setLevel(Type.BROWSER, Level.ALL);
 describe("BrowserTabVisibility", () => {
   let driver;
 
+  //TODO : ここでserve-handlerを起動する。
   beforeEach(async () => {
     let browser = process.env.BROWSER;
     if (browser == "edge") {

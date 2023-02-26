@@ -26,10 +26,7 @@ jobs:
       - run: npm run buildTS
   selenium:
     runs-on: ubuntu-latest
-    container:
-      image: node:18
     strategy:
-      fail-fast: false
       matrix:
         browser: ["chrome", "firefox"]
     services:
@@ -43,7 +40,7 @@ jobs:
           node-version: "18"
           cache: "npm"
       - run: npm ci
-      - run: npm run build
-      - run: npm run seleniumServer && npm run test
+      - run: npm run buildTS && npm run demo
+      - run: npm run test
         env:
           BROWSER: ${{ matrix.browser }}

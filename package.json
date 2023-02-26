@@ -32,7 +32,7 @@
   },
   "scripts": {
     "test": "jest",
-    "jestWithChorme": "npm run seleniumServer & BROWSER=chrome jest",
+    "jestWithChorme": "BROWSER=chrome jest",
     "prepare": "husky install",
     "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
     "build": "npm run buildTS && npm run demo && npm run build:typedoc",
