@@ -3,6 +3,12 @@ name: Publish github pages
 on:
   push:
     branches: [main]
+    paths:
+      - "src/**"
+      - "demoSrc/**"
+      - "package.json"
+      - "README.md"
+      - "tsconfig**.json"
 
 jobs:
   publish:
