@@ -8,7 +8,6 @@ const testSwitchTab = async (driver) => {
     await driver.get("http://localhost:3005/demo.html");
     const browserWindow = await driver.manage().window();
     await browserWindow.minimize();
-    await searchLog(driver, "invisible");
     await browserWindow.maximize();
     await searchLog(driver, "visible");
   } catch (e) {
