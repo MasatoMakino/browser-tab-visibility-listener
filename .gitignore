@@ -247,4 +247,4 @@ Temporary Items
 .idea
 ./tsconfig.esm.tsbuildinfo
 ./tsconfig.cjs.tsbuildinfo
-
+docs
