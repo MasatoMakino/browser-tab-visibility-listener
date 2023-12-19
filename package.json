@@ -39,8 +39,9 @@
     "server": "browser-sync ./docs/demo -w",
     "watch:demo": "npm run demo -- -W",
     "watch:tsc": "tsc -W --incremental --project tsconfig.cjs.json & tsc -W --incremental --project tsconfig.esm.json",
-    "selenium": "npm run selenium:server & npm run selenium:test",
+    "selenium": "npm run selenium:server & npm run selenium:local",
     "selenium:server": "serve docs/demo -p 3005",
-    "selenium:test": "node selenium/selenium.js"
+    "selenium:actions": "node selenium/selenium_chrome.js",
+    "selenium:local": "node selenium/selenium_local.js"
   }
 }

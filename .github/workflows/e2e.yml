@@ -22,14 +22,10 @@ jobs:
 
       - uses: browser-actions/setup-chrome@v1
       - run: chrome --version
-      - uses: browser-actions/setup-firefox@v1
-      - run: firefox --version
 
       - name: Install dependencies
         run: npm ci
-
       - name: Start server
         run: npm run selenium:server & sleep 5
-
       - name: Run tests
-        run: xvfb-run --auto-servernum npm run selenium:test
+        run: xvfb-run --auto-servernum npm run selenium:actions

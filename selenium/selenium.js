@@ -1,4 +1,4 @@
-const { Builder, Capabilities } = require("selenium-webdriver");
+const { Builder } = require("selenium-webdriver");
 const { Preferences, Type, Level } = require("selenium-webdriver/lib/logging");
 const pref = new Preferences();
 pref.setLevel(Type.BROWSER, Level.ALL);
@@ -36,11 +36,4 @@ const selenium = (capabilities) => {
   testSwitchTab(driver);
 };
 
-const browsers = [
-  // Capabilities.chrome(),
-  Capabilities.firefox(),
-];
-
-browsers.forEach(async (capability) => {
-  await selenium(capability);
-});
+module.exports = selenium;
