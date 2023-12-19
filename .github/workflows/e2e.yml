@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Start server
-        run: npm run seleniumServer & sleep 5
+        run: npm run selenium:server & sleep 5
 
       - name: Run tests
-        run: npm run selenium
+        run: npm run selenium:test
