@@ -30,4 +30,4 @@ jobs:
         run: npm run selenium:server & sleep 5
 
       - name: Run tests
-        run: npm run selenium:test
+        run: xvfb-run --auto-servernum npm run selenium:test
