@@ -1,5 +1,8 @@
 # browser-tab-visibility-listener
 
+> [!WARNING]
+> **This project has been archived.** As an alternative, please use the `visibilitychange` event from the HTML standard. More details can be found [here](https://html.spec.whatwg.org/multipage/indices.html#event-visibilitychange).
+
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![build test](https://github.com/MasatoMakino/browser-tab-visibility-listener/actions/workflows/ci.yml/badge.svg)](https://github.com/MasatoMakino/browser-tab-visibility-listener/actions/workflows/ci.yml)
 
