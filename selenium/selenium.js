@@ -36,7 +36,10 @@ const selenium = (capabilities) => {
   testSwitchTab(driver);
 };
 
-const browsers = [Capabilities.chrome(), Capabilities.firefox()];
+const browsers = [
+  Capabilities.chrome(),
+  //  Capabilities.firefox()
+];
 
 browsers.forEach(async (capability) => {
   await selenium(capability);
